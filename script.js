@@ -28,7 +28,7 @@ function adicionarTarefa() {
         li.innerHTML = `
         <button class="remove-btn" onclick="removeTarefa(this)">X</button>
         <strong>${textoTarefa}</strong>
-        <button class="realiza-btn" onclick="realizaTarefa(this)">X</button>
+        <button class="realiza-btn" onclick="realizaTarefa(this)">✓</button>
     `;
 
         listaTarefa.appendChild(li);
