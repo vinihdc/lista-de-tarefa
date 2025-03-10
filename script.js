@@ -33,15 +33,32 @@ function adicionarTarefa() {
 
         listaTarefa.appendChild(li);
         tarefa.value = "";
+        localStorage.setItem('listaTarefa', listaTarefa.innerHTML);
     }
 }
 
 function removeTarefa(button) {
     const lista = button.parentElement;
     lista.remove();
+
+    localStorage.setItem('listaTarefa', document.getElementById('listaTarefa').innerHTML);
 }
 
 function realizaTarefa(button) {
     const lista = button.parentElement;
     lista.classList.toggle('realiza');
+
+    const listaTarefa = document.getElementById('listaTarefa');
+    localStorage.setItem('listaTarefa', listaTarefa.innerHTML);
 }
+
+function carregarTarefas() {
+    const listaTarefa = document.getElementById('listaTarefa');
+    
+    const tarefasArmazenadas = localStorage.getItem('listaTarefa');
+    if (tarefasArmazenadas) {
+        listaTarefa.innerHTML = tarefasArmazenadas;
+    }
+}
+
+window.onload = carregarTarefas;
