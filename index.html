@@ -1,116 +1,22 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Tarefas</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            width: 100%;
-            max-width: 500px;
-            margin: 50px auto;
-            padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-        }
-        h1 {
-            text-align: center;
-            color: #333;
-        }
-        input[type="text"] {
-            width: calc(100% - 40px);
-            padding: 10px;
-            margin: 10px 0;
-            border: 2px solid #ddd;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-        button {
-            width: 100%;
-            padding: 10px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #45a049;
-        }
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        li {
-            padding: 10px;
-            border-bottom: 1px solid #ddd;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        li span {
-            flex-grow: 1;
-        }
-        .remove-btn {
-            background-color: #f44336;
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 25px;
-            height: 25px;
-            cursor: pointer;
-        }
-        .remove-btn:hover {
-            background-color: #d32f2f;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-
     <div class="container">
-        <p> Nathan esteve aqui </p>
-        <h1>Minha Lista de Tarefas</h1>
-        <input type="text" id="task-input" placeholder="Adicione uma nova tarefa...">
-        <button onclick="addTask()">Adicionar Tarefa</button>
-        <ul id="task-list"></ul>
+        <h1>Lista de Tarefas</h1>
+        <input type="text" id="textoTarefa" placeholder="Adicione uma nova tarefa...">
+        <button onclick="adicionarTarefa()">Adicionar Tarefa</button>
+        <ul id="listaTarefa"></ul>
     </div>
-
-    <script>
-        function addTask() {
-            const taskInput = document.getElementById('task-input');
-            const taskText = taskInput.value.trim();
-            
-            if (taskText === "") {
-                alert("Por favor, insira uma tarefa!");
-                return;
-            }
-            
-            const taskList = document.getElementById('task-list');
-            const li = document.createElement('li');
-            
-            li.innerHTML = `
-                <span>${taskText}</span>
-                <button class="remove-btn" onclick="removeTask(this)">X</button>
-            `;
-            
-            taskList.appendChild(li);
-            taskInput.value = "";
-        }
-
-        // Função para remover tarefa
-        function removeTask(button) {
-            const li = button.parentElement;
-            li.remove();
-        }
-    </script>
+    <script src="script.js"></script>
 
 </body>
+
 </html>
